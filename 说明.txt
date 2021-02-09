@@ -1,0 +1,37 @@
+一,编译freetype
+
+1, 解压freetype文件夹中的freetype-2.4.10.tar.bz2,然后编译install
+
+tar xjf freetype-2.4.10.tar.bz2 
+./configure --host=arm-linux
+make
+make DESTDIR=$PWD/tmp install
+
+
+2, 
+将tmp目录的下的lib,拷贝到交叉编译工具路径下的lib目录去, 要加-d参数保持链接属性 !!!!!!!!!!!!!!-----重要!!!!!!!!!!!
+
+3,
+
+将tmp目录的下的lib,拷贝到嵌入式板子的/usr/lib目录, 要加-d参数保持链接属性
+
+
+
+二, 解压project文件夹中的project.rar
+
+然后拷贝到系统中, 修改Makefile文件, 修改Makefile的 -I 和 -L路径为你自己的路径
+然后make
+
+得到可执行文件
+
+
+三, 将arm_lib目录下的几个文件拷贝到嵌入式板子中的某个目录,如 /usr/local/myproject.
+
+然后统一修改权限. chmod 0777 *
+
+
+最后执行 !  OK !
+
+
+
+不明白就和我沟通.谢谢 !
